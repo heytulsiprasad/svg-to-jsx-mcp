@@ -1,31 +1,48 @@
 # SVG to JSX MCP Server
 
-A Model Context Protocol (MCP) server that converts SVG files to React JSX components using SVGR.
-
-## Features
-
-- Convert SVG code to React JSX components
-- Configurable SVGR options (icon mode, TypeScript, accessibility props, etc.)
-- Built-in SVGO optimization and Prettier formatting
-- Support for custom component names
+A Model Context Protocol (MCP) server that converts SVG files to React JSX components using SVGR. Provides comprehensive configuration options for customizing the conversion process.
 
 ## Installation
 
+### Via npm (recommended)
 ```bash
-pnpm install
-pnpm run build
+npm install -g svg-to-jsx-mcp
 ```
+
+### From source
+```bash
+git clone https://github.com/[username]/svg-to-jsx-mcp
+cd svg-to-jsx-mcp
+pnpm install && pnpm run build
+```
+
+## MCP Integration
+
+Add this server to your MCP client configuration:
+
+### Claude Desktop
+Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
+```json
+{
+  "mcpServers": {
+    "svg-to-jsx": {
+      "command": "svg-to-jsx-mcp"
+    }
+  }
+}
+```
+
+### Other MCP Clients
+Use the command: `svg-to-jsx-mcp` or `npx svg-to-jsx-mcp`
 
 ## Usage
 
-The MCP server provides a `convert_svg_to_jsx` tool with the following parameters:
+The server provides a `convert_svg_to_jsx` tool:
 
-### Required Parameters
-- `svgCode` (string): The SVG code to convert
-
-### Optional Parameters
-- `componentName` (string): Name for the React component (default: "SvgComponent")
-- `config` (object): SVGR configuration options
+### Parameters
+- `svgCode` (string, required): SVG code to convert
+- `componentName` (string, optional): Component name (default: "SvgComponent")  
+- `config` (object, optional): SVGR configuration options
 
 ### Configuration Options
 
@@ -99,10 +116,31 @@ const SvgComponent = (props) => (
 export default SvgComponent;
 ```
 
-## Running the Server
+## Implementation Details
+
+- **Built with**: TypeScript, @svgr/core, MCP SDK
+- **Architecture**: Modular structure with separate tools, types, and server components
+- **Plugins**: SVGO optimization, JSX transformation, Prettier formatting
+- **Protocol**: Model Context Protocol (MCP) over stdio
+
+## Development
 
 ```bash
-pnpm start
+git clone https://github.com/[username]/svg-to-jsx-mcp
+cd svg-to-jsx-mcp
+pnpm install
+pnpm run dev    # Watch mode
+pnpm run build  # Production build
+pnpm start      # Run server
 ```
 
-The server runs on stdio and can be integrated with any MCP-compatible client.
+## Next Steps for Users
+
+1. **Install globally**: `npm install -g svg-to-jsx-mcp`
+2. **Add to MCP client**: Update your MCP client configuration
+3. **Use in your workflow**: Convert SVGs directly from your code editor
+4. **Customize**: Use extensive SVGR options for your specific needs
+
+## Contributing
+
+Issues and PRs welcome! This MCP server provides comprehensive SVG to React component conversion with all SVGR features accessible through any MCP-compatible client.

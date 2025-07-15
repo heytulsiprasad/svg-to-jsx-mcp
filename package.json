@@ -13,8 +13,16 @@
     "start": "node dist/index.js"
   },
   "keywords": ["mcp", "svg", "react", "jsx", "svgr", "convert"],
-  "author": "",
+  "author": "heytulsiprasad",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heytulsiprasad/svg-to-jsx-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/heytulsiprasad/svg-to-jsx-mcp/issues"
+  },
+  "homepage": "https://github.com/heytulsiprasad/svg-to-jsx-mcp#readme",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
     "@svgr/core": "^8.1.0",
