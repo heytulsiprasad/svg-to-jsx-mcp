@@ -1,0 +1,29 @@
+{
+  "name": "svg-to-jsx-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for converting SVG files to React JSX components using SVGR",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "svg-to-jsx-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js"
+  },
+  "keywords": ["mcp", "svg", "react", "jsx", "svgr", "convert"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "@svgr/plugin-prettier": "^8.1.0",
+    "@svgr/plugin-svgo": "^8.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
