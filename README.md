@@ -1,15 +1,14 @@
 # SVG to JSX MCP Server
 
+[![npm version](https://badge.fury.io/js/svg-to-jsx-mcp.svg)](https://badge.fury.io/js/svg-to-jsx-mcp)
+
 A Model Context Protocol (MCP) server that converts SVG files to React JSX components using SVGR. Provides comprehensive configuration options for customizing the conversion process.
 
 ## Installation
 
-### Via npm (recommended)
-```bash
-npm install -g svg-to-jsx-mcp
-```
+No installation required! Use with `npx` directly.
 
-### From source
+### From source (for development)
 ```bash
 git clone https://github.com/[username]/svg-to-jsx-mcp
 cd svg-to-jsx-mcp
@@ -20,20 +19,64 @@ pnpm install && pnpm run build
 
 Add this server to your MCP client configuration:
 
-### Claude Desktop
-Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
+<details>
+<summary><strong>Claude Desktop</strong></summary>
+
+Add to `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) or `%APPDATA%\Claude\claude_desktop_config.json` (Windows):
 ```json
 {
   "mcpServers": {
     "svg-to-jsx": {
-      "command": "svg-to-jsx-mcp"
+      "command": "npx",
+      "args": ["svg-to-jsx-mcp"]
     }
   }
 }
 ```
+</details>
 
-### Other MCP Clients
+<details>
+<summary><strong>Claude Code CLI</strong></summary>
+
+Add to `~/.claude/claude_code_config.json`:
+```json
+{
+  "mcpServers": {
+    "svg-to-jsx": {
+      "command": "npx",
+      "args": ["svg-to-jsx-mcp"]
+    }
+  }
+}
+```
+</details>
+
+<details>
+<summary><strong>Cursor (with MCP support)</strong></summary>
+
+Add to your Cursor MCP configuration file:
+```json
+{
+  "mcpServers": {
+    "svg-to-jsx": {
+      "command": "npx",
+      "args": ["svg-to-jsx-mcp"]
+    }
+  }
+}
+```
+</details>
+
+<details>
+<summary><strong>Other MCP Clients</strong></summary>
+
 Use the command: `svg-to-jsx-mcp` or `npx svg-to-jsx-mcp`
+
+For development/testing:
+```bash
+node /path/to/svg-to-jsx-mcp/dist/index.js
+```
+</details>
 
 ## Usage
 
@@ -150,10 +193,9 @@ pnpm start      # Run server
 
 ## Next Steps for Users
 
-1. **Install globally**: `npm install -g svg-to-jsx-mcp`
-2. **Add to MCP client**: Update your MCP client configuration
-3. **Use in your workflow**: Convert SVGs directly from your code editor
-4. **Customize**: Use extensive SVGR options for your specific needs
+1. **Add to MCP client**: Update your MCP client configuration (no installation required!)
+2. **Use in your workflow**: Convert SVGs directly from your code editor
+3. **Customize**: Use extensive SVGR options for your specific needs
 
 ## Contributing
 
