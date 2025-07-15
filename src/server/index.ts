@@ -19,6 +19,7 @@ export function createServer() {
   );
 
   server.setRequestHandler(ListToolsRequestSchema, async () => {
+    console.error('Received ListTools request');
     return {
       tools: [convertSvgToolSchema]
     };
@@ -26,12 +27,15 @@ export function createServer() {
 
   server.setRequestHandler(CallToolRequestSchema, async (request) => {
     const { name, arguments: args } = request.params;
+    console.error(`Received CallTool request for: ${name}`);
 
     if (name === 'convert_svg_to_jsx') {
       try {
         const typedArgs = args as unknown as ConvertSvgArgs;
+        console.error(`Converting SVG for component: ${typedArgs.componentName || 'SvgComponent'}`);
         const jsxCode = await convertSvgToJsx(typedArgs);
 
+        console.error(`Successfully converted SVG to JSX`);
         return {
           content: [
             {
@@ -42,6 +46,7 @@ export function createServer() {
         };
       } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+        console.error(`Error converting SVG: ${errorMessage}`);
         return {
           content: [
             {

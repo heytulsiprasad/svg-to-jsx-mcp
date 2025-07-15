@@ -134,6 +134,20 @@ pnpm run build  # Production build
 pnpm start      # Run server
 ```
 
+## Why Use This MCP vs Manual Conversion?
+
+**This MCP provides:**
+- **90+ SVGR configuration options** (icon mode, TypeScript, accessibility props, React Native, etc.)
+- **Consistent, precise conversions** using the actual SVGR library
+- **Professional-grade control** over output format and optimization
+- **Reusable tool** across projects and team members
+
+**Manual conversion offers:**
+- **Basic conversion** with limited customization
+- **Inconsistent results** depending on context/prompting
+- **No access to SVGR's advanced features** like SVGO optimization, React.memo wrapping, etc.
+- **Manual process** each time
+
 ## Next Steps for Users
 
 1. **Install globally**: `npm install -g svg-to-jsx-mcp`
